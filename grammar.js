@@ -1,3 +1,15 @@
+// Some extra combinators:
+
+const sepBy1 = (p1, sep) =>
+  seq(p1, repeat(seq(sep, p1)));
+
+const between = (begin, end) => p =>
+  seq(begin, p, end);
+
+const betweenParens =
+  between('(', ')');
+
+// Grammar definition:
 module.exports = grammar({
   name: "eclair",
   rules: {
@@ -5,24 +17,18 @@ module.exports = grammar({
     _statement: $ => choice($.fact, $.rule),
     fact: $ => seq($._atom, '.'),
     _atom: $ => seq(
-      $.identifier,
-      '(', $.argument_list, ')'
+      field('name', $.identifier),
+      betweenParens(field('arguments', $.argument_list))
     ),
     rule: $ => seq(
-      $.identifier,
-      '(', $.argument_list, ')',
+      field('name', $.identifier),
+      betweenParens(field('arguments', $.argument_list)),
       ':-',
-      $.clause_list,
+      field('clauses', $.clause_list),
       '.'
     ),
-    clause_list: $ => seq(
-      alias($._atom, $.clause),
-      repeat(seq(',', alias($._atom, $.clause)))
-    ),
-    argument_list: $ => seq(
-      $._argument,
-      repeat(seq(',', $._argument))
-    ),
+    clause_list: $ => sepBy1(alias($._atom, $.clause), ','),
+    argument_list: $ => sepBy1($._argument, ','),
     _argument: $ => choice($.identifier, $.lit),
     identifier: _ => /[a-zA-Z][a-zA-Z0-9_]*/,
     lit: _ => /\d+/
