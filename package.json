@@ -1,0 +1,30 @@
+{
+  "name": "tree-sitter-eclair",
+  "version": "1.0.0",
+  "description": "Tree-sitter grammar for Eclair",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/luc-tielen/tree-sitter-eclair.git"
+  },
+  "keywords": [
+    "tree-sitter",
+    "grammar",
+    "eclair"
+  ],
+  "author": "Luc Tielen",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/luc-tielen/tree-sitter-eclair/issues"
+  },
+  "homepage": "https://github.com/luc-tielen/tree-sitter-eclair#readme",
+  "dependencies": {
+    "nan": "^2.14.2"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.0"
+  }
+}
