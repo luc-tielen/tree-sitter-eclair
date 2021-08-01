@@ -1,0 +1,34 @@
+=====
+Facts
+=====
+
+edge(1,2).
+edge( 2  ,   3  )  .
+
+another(1, 2, 3).
+
+and_zero(0).
+
+multiple(1). on_one_line(2).
+
+---
+
+(source_file
+  (fact
+    (identifier)
+    (argument_list (lit) (lit)))
+  (fact
+    (identifier)
+    (argument_list (lit) (lit)))
+  (fact
+    (identifier)
+    (argument_list (lit) (lit) (lit)))
+  (fact
+    (identifier)
+    (argument_list (lit)))
+  (fact
+    (identifier)
+    (argument_list (lit)))
+  (fact
+    (identifier)
+    (argument_list (lit))))
