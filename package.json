@@ -10,11 +10,7 @@
     "type": "git",
     "url": "git+ssh://git@github.com/luc-tielen/tree-sitter-eclair.git"
   },
-  "keywords": [
-    "tree-sitter",
-    "grammar",
-    "eclair"
-  ],
+  "keywords": ["tree-sitter", "grammar", "eclair"],
   "author": "Luc Tielen",
   "license": "BSD-3-Clause",
   "bugs": {
@@ -26,5 +22,11 @@
   },
   "devDependencies": {
     "tree-sitter-cli": "^0.20.0"
-  }
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.eclair",
+      "file-types": ["eclair"]
+    }
+  ]
 }
