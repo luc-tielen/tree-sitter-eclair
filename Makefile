@@ -1,13 +1,10 @@
 build:
-	@./scripts/build.sh
+	@./node_modules/tree-sitter-cli/tree-sitter generate
 
 test: build
-	@./scripts/test.sh
-
-#run:
-#	${TREESITTER} parse
+	@./node_modules/tree-sitter-cli/tree-sitter test
 
 clean:
-	@rm -rf build/
+	@rm -rf Cargo.toml binding.gyp bindings src
 
 .PHONY: build test clean
