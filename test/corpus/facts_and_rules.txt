@@ -1,0 +1,34 @@
+===============
+Facts and rules
+===============
+
+edge(1, 2).
+edge(2, 3).
+
+path(x, y) :-
+  edge(x, y).
+
+path(x, z) :-
+  edge(x, y),
+  path(y, z).
+
+---
+
+(source_file
+  (fact
+    (identifier)
+    (argument_list (lit) (lit)))
+  (fact
+    (identifier)
+    (argument_list (lit) (lit)))
+  (rule
+    (identifier)
+    (argument_list (identifier) (identifier))
+    (clause_list
+      (clause (identifier) (argument_list (identifier) (identifier)))))
+  (rule
+    (identifier)
+    (argument_list (identifier) (identifier))
+    (clause_list
+      (clause (identifier) (argument_list (identifier) (identifier)))
+      (clause (identifier) (argument_list (identifier) (identifier))))))
