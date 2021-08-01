@@ -1,0 +1,60 @@
+=====
+Rules
+=====
+
+rule(x) :-
+  clause(x).
+
+on(x) :- same_line(x).
+
+on(x) :- same(x), line(x).
+
+rule(x) :-
+  a(x),
+  bc(x).
+
+rule  (  some_var ,   other_var123  ):-
+  abc123  (  some_var  )  ,
+  def456(other_var123)  .
+
+rule_with_lit(x, 123) :-
+  clause(x),
+  clause(456).
+
+---
+
+(source_file
+  (rule
+    (identifier)
+    (argument_list (identifier))
+    (clause_list
+      (clause (identifier) (argument_list (identifier)))))
+  (rule
+    (identifier)
+    (argument_list (identifier))
+    (clause_list
+      (clause (identifier) (argument_list (identifier)))))
+  (rule
+    (identifier)
+    (argument_list (identifier))
+    (clause_list
+      (clause (identifier) (argument_list (identifier)))
+      (clause (identifier) (argument_list (identifier)))))
+  (rule
+    (identifier)
+    (argument_list (identifier))
+    (clause_list
+      (clause (identifier) (argument_list (identifier)))
+      (clause (identifier) (argument_list (identifier)))))
+  (rule
+    (identifier)
+    (argument_list (identifier) (identifier))
+    (clause_list
+      (clause (identifier) (argument_list (identifier)))
+      (clause (identifier) (argument_list (identifier)))))
+  (rule
+    (identifier)
+    (argument_list (identifier) (lit))
+    (clause_list
+      (clause (identifier) (argument_list (identifier)))
+      (clause (identifier) (argument_list (lit))))))
