@@ -1,12 +1,10 @@
-TREESITTER=./node_modules/tree-sitter-cli/tree-sitter
-
 build:
-	${TREESITTER} generate
+	@./scripts/build.sh
 
 #run:
 #	${TREESITTER} parse
 
 clean:
-	rm binding.gyp index.js
+	@rm -rf build/
 
 .PHONY: build clean
