@@ -1,10 +1,13 @@
 build:
 	@./scripts/build.sh
 
+test: build
+	@./scripts/test.sh
+
 #run:
 #	${TREESITTER} parse
 
 clean:
 	@rm -rf build/
 
-.PHONY: build clean
+.PHONY: build test clean

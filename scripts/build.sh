@@ -7,7 +7,10 @@ ROOT_DIR=$SCRIPT_DIR/..
 BUILD_DIR=$ROOT_DIR/build
 TREE_SITTER=../node_modules/tree-sitter-cli/tree-sitter
 
+echo "Preparing build environment."
+cd $ROOT_DIR
 mkdir -p $BUILD_DIR
+cp ./grammar.js $BUILD_DIR
 cd $BUILD_DIR
 
 if [[ ! -f "$TREE_SITTER" ]]; then
@@ -18,7 +21,7 @@ if [[ ! -f "$TREE_SITTER" ]]; then
 fi
 
 echo "Generating parser."
-${TREE_SITTER} generate ../grammar.js
+${TREE_SITTER} generate
 
 echo "Done!"
 exit 0
