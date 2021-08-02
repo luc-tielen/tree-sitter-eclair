@@ -26,7 +26,8 @@
   "tree-sitter": [
     {
       "scope": "source.eclair",
-      "file-types": ["eclair"]
+      "file-types": ["eclair"],
+      "highlights": "queries/highlights.scm"
     }
   ]
 }
