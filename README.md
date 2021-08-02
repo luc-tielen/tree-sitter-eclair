@@ -33,3 +33,6 @@ Add the following to init.vim:
 ```viml
 au BufNewFile,BufRead *.eclair set filetype=eclair
 ```
+
+Now you should have syntax highlighting for any file with the ".eclair"
+extension!
