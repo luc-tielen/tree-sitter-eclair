@@ -136,6 +136,56 @@
         {
           "type": "rule",
           "named": true
+        },
+        {
+          "type": "typedef",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typedef",
+    "named": true,
+    "fields": {
+      "types": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_list",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
         }
       ]
     }
@@ -161,11 +211,23 @@
     "named": false
   },
   {
+    "type": "@def",
+    "named": false
+  },
+  {
     "type": "identifier",
     "named": true
   },
   {
     "type": "lit",
     "named": true
+  },
+  {
+    "type": "str",
+    "named": false
+  },
+  {
+    "type": "u32",
+    "named": false
   }
 ]

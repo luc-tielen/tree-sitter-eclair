@@ -13,11 +13,91 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "typedef"
+        },
+        {
+          "type": "SYMBOL",
           "name": "fact"
         },
         {
           "type": "SYMBOL",
           "name": "rule"
+        }
+      ]
+    },
+    "typedef": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@def"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "FIELD",
+              "name": "types",
+              "content": {
+                "type": "SYMBOL",
+                "name": "type_list"
+              }
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        }
+      ]
+    },
+    "type_list": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "type"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "type"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "u32"
+        },
+        {
+          "type": "STRING",
+          "value": "str"
         }
       ]
     },
