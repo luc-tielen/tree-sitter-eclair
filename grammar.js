@@ -14,7 +14,10 @@ module.exports = grammar({
   name: "eclair",
   rules: {
     source_file: $ => repeat($._statement),
-    _statement: $ => choice($.fact, $.rule),
+    _statement: $ => choice($.typedef, $.fact, $.rule),
+    typedef: $ => seq('@def', $.identifier, betweenParens(field('types', $.type_list)), '.'),
+    type_list: $ => sepBy1($.type, ','),
+    type: $ => choice("u32", "str"),
     fact: $ => seq($._atom, '.'),
     _atom: $ => seq(
       field('name', $.identifier),

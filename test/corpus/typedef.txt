@@ -1,0 +1,17 @@
+========
+Typedefs
+========
+
+@def x(u32).
+@def edge(str, str).
+@def reachable(str   ,  str).
+
+---
+
+(source_file
+  (typedef (identifier)
+    (type_list (type)))
+  (typedef (identifier)
+    (type_list (type) (type)))
+  (typedef (identifier)
+    (type_list (type) (type))))
