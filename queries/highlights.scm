@@ -16,6 +16,6 @@
 
 "@def" @punctuation.special
 
-(type) @type.builtin
+(type) @type
 
 (ERROR) @error
