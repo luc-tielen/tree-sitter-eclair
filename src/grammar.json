@@ -101,7 +101,7 @@
         },
         {
           "type": "STRING",
-          "value": "str"
+          "value": "string"
         }
       ]
     },

@@ -223,7 +223,7 @@
     "named": true
   },
   {
-    "type": "str",
+    "type": "string",
     "named": false
   },
   {

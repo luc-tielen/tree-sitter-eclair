@@ -20,7 +20,7 @@ module.exports = grammar({
         "."
       ),
     type_list: ($) => sepBy1($.type, ","),
-    type: ($) => choice("u32", "str"),
+    type: ($) => choice("u32", "string"),
     fact: ($) => seq($._atom, "."),
     _atom: ($) =>
       seq(

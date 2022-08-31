@@ -3,8 +3,8 @@ Typedefs
 ========
 
 @def x(u32).
-@def edge(str, str).
-@def reachable(str   ,  str).
+@def edge(string, string).
+@def reachable(string   ,  string).
 
 ---
 
