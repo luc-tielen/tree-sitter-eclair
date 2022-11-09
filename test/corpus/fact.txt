@@ -7,6 +7,8 @@ edge( 2  ,   3  )  .
 
 another(1, 2, 3).
 
+fact_with_string("1").
+
 and_zero(0).
 
 multiple(1). on_one_line(2).
@@ -16,19 +18,22 @@ multiple(1). on_one_line(2).
 (source_file
   (fact
     (identifier)
-    (argument_list (lit) (lit)))
+    (argument_list (number) (number)))
   (fact
     (identifier)
-    (argument_list (lit) (lit)))
+    (argument_list (number) (number)))
   (fact
     (identifier)
-    (argument_list (lit) (lit) (lit)))
+    (argument_list (number) (number) (number)))
   (fact
     (identifier)
-    (argument_list (lit)))
+    (argument_list (string)))
   (fact
     (identifier)
-    (argument_list (lit)))
+    (argument_list (number)))
   (fact
     (identifier)
-    (argument_list (lit))))
+    (argument_list (number)))
+  (fact
+    (identifier)
+    (argument_list (number))))

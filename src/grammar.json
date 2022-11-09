@@ -271,7 +271,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "lit"
+          "name": "number"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
         }
       ]
     },
@@ -279,9 +283,13 @@
       "type": "PATTERN",
       "value": "[a-zA-Z][a-zA-Z0-9_]*"
     },
-    "lit": {
+    "number": {
       "type": "PATTERN",
       "value": "\\d+"
+    },
+    "string": {
+      "type": "PATTERN",
+      "value": "\\\".*\\\""
     }
   },
   "extras": [

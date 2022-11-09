@@ -17,10 +17,10 @@ path(x, z) :-
 (source_file
   (fact
     (identifier)
-    (argument_list (lit) (lit)))
+    (argument_list (number) (number)))
   (fact
     (identifier)
-    (argument_list (lit) (lit)))
+    (argument_list (number) (number)))
   (rule
     (identifier)
     (argument_list (identifier) (identifier))

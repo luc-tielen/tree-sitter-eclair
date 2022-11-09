@@ -37,8 +37,9 @@ module.exports = grammar({
       ),
     clause_list: ($) => sepBy1(alias($._atom, $.clause), ","),
     argument_list: ($) => sepBy1($._argument, ","),
-    _argument: ($) => choice($.identifier, $.lit),
+    _argument: ($) => choice($.identifier, $.number, $.string),
     identifier: (_) => /[a-zA-Z][a-zA-Z0-9_]*/,
-    lit: (_) => /\d+/,
+    number: (_) => /\d+/,
+    string: (_) => /\".*\"/,
   },
 });

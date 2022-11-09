@@ -1,4 +1,6 @@
-(lit) @number
+(number) @number
+
+(string) @string
 
 (fact name: (identifier) @function)
 

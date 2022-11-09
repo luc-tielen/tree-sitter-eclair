@@ -12,7 +12,11 @@
           "named": true
         },
         {
-          "type": "lit",
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -219,7 +223,11 @@
     "named": true
   },
   {
-    "type": "lit",
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "string",
     "named": true
   },
   {
