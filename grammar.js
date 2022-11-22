@@ -35,11 +35,15 @@ module.exports = grammar({
         field("clauses", $.clause_list),
         "."
       ),
-    clause_list: ($) => sepBy1(alias($._atom, $.clause), ","),
+    clause_list: ($) =>
+      sepBy1(choice($.equality, alias($._atom, $.clause)), ","),
+    equality: ($) => seq($._argument, "=", $._argument),
     argument_list: ($) => sepBy1($._argument, ","),
-    _argument: ($) => choice($.identifier, $.number, $.string),
+    _argument: ($) => choice($.identifier, $._literal, $.hole),
     identifier: (_) => /[a-zA-Z][a-zA-Z0-9_]*/,
+    _literal: ($) => choice($.number, $.string),
     number: (_) => /\d+/,
     string: (_) => /\".*\"/,
+    hole: (_) => "?",
   },
 });

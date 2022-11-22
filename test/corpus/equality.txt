@@ -1,0 +1,19 @@
+=====
+Equality
+=====
+
+rule(x) :-
+  x = 42,
+  42 = x,
+  x = x,
+  42 = 42.
+
+---
+
+(source_file
+  (rule (identifier) (argument_list (identifier))
+    (clause_list
+      (equality (identifier) (number))
+      (equality (number) (identifier))
+      (equality (identifier) (identifier))
+      (equality (number) (number)))))

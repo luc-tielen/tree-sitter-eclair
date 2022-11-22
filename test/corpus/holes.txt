@@ -1,0 +1,17 @@
+=====
+Holes
+=====
+
+fact(?, 42, ?).
+rule(x) :-
+  clause(?),
+  x = ?.
+
+---
+
+(source_file
+  (fact (identifier) (argument_list (hole) (number) (hole)))
+  (rule (identifier) (argument_list (identifier))
+    (clause_list
+      (clause (identifier) (argument_list (hole)))
+      (equality (identifier) (hole)))))

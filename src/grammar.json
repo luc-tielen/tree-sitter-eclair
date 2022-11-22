@@ -206,13 +206,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_atom"
-          },
-          "named": true,
-          "value": "clause"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "equality"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_atom"
+              },
+              "named": true,
+              "value": "clause"
+            }
+          ]
         },
         {
           "type": "REPEAT",
@@ -224,16 +233,42 @@
                 "value": ","
               },
               {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_atom"
-                },
-                "named": true,
-                "value": "clause"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "equality"
+                  },
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_atom"
+                    },
+                    "named": true,
+                    "value": "clause"
+                  }
+                ]
               }
             ]
           }
+        }
+      ]
+    },
+    "equality": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_argument"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_argument"
         }
       ]
     },
@@ -271,6 +306,23 @@
         },
         {
           "type": "SYMBOL",
+          "name": "_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "hole"
+        }
+      ]
+    },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z][a-zA-Z0-9_]*"
+    },
+    "_literal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
           "name": "number"
         },
         {
@@ -279,10 +331,6 @@
         }
       ]
     },
-    "identifier": {
-      "type": "PATTERN",
-      "value": "[a-zA-Z][a-zA-Z0-9_]*"
-    },
     "number": {
       "type": "PATTERN",
       "value": "\\d+"
@@ -290,6 +338,10 @@
     "string": {
       "type": "PATTERN",
       "value": "\\\".*\\\""
+    },
+    "hole": {
+      "type": "STRING",
+      "value": "?"
     }
   },
   "extras": [

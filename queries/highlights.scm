@@ -16,7 +16,11 @@
 
 ":-" @punctuation.special
 
-"@def" @punctuation.special
+"=" @operator
+
+"@def" @keyword
+
+(hole) @keyword
 
 (type) @type
 

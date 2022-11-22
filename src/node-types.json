@@ -8,6 +8,10 @@
       "required": true,
       "types": [
         {
+          "type": "hole",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -58,6 +62,37 @@
       "types": [
         {
           "type": "clause",
+          "named": true
+        },
+        {
+          "type": "equality",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "equality",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "hole",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -215,8 +250,16 @@
     "named": false
   },
   {
+    "type": "=",
+    "named": false
+  },
+  {
     "type": "@def",
     "named": false
+  },
+  {
+    "type": "hole",
+    "named": true
   },
   {
     "type": "identifier",
@@ -228,11 +271,11 @@
   },
   {
     "type": "string",
-    "named": true
+    "named": false
   },
   {
     "type": "string",
-    "named": false
+    "named": true
   },
   {
     "type": "u32",
