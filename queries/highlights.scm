@@ -25,3 +25,7 @@
 (type) @type
 
 (ERROR) @error
+
+;; Spellchecking in comments
+(comment) @comment
+(comment) @spell

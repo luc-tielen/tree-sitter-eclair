@@ -1,0 +1,25 @@
+=====
+Comments
+=====
+// single comment
+
+/*
+
+multi
+  line
+
+*/
+
+rule(x) :-
+  /* inside rule */
+  clause(?),
+  x = ?.
+
+---
+
+(source_file
+  (comment)
+  (comment)
+  (rule (identifier) (argument_list (identifier))
+    (comment)
+    (clause_list (clause (identifier) (argument_list (hole))) (equality (identifier) (hole)))))
