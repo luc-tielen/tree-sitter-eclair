@@ -17,8 +17,10 @@ module.exports = grammar({
         "@def",
         field("name", $.identifier),
         betweenParens(field("types", $.type_list)),
+        optional(repeat($.qualifier)),
         "."
       ),
+    qualifier: ($) => choice("input", "output"),
     type_list: ($) => sepBy1($.type, ","),
     type: ($) => choice("u32", "string"),
     fact: ($) => seq($._atom, "."),

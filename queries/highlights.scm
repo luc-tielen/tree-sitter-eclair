@@ -22,6 +22,8 @@
 
 (hole) @keyword
 
+(qualifier) @keyword
+
 (type) @type
 
 (ERROR) @error

@@ -6,6 +6,10 @@ Typedefs
 @def edge(string, string).
 @def reachable(string   ,  string).
 
+@def with_input(u32) input.
+@def with_output(u32) output.
+@def with_many_qualifiers(u32) input output output input output.
+
 ---
 
 (source_file
@@ -14,4 +18,11 @@ Typedefs
   (typedef (identifier)
     (type_list (type) (type)))
   (typedef (identifier)
-    (type_list (type) (type))))
+    (type_list (type) (type)))
+  (typedef (identifier)
+    (type_list (type)) (qualifier))
+  (typedef (identifier)
+    (type_list (type)) (qualifier))
+  (typedef (identifier)
+    (type_list (type))
+      (qualifier) (qualifier) (qualifier) (qualifier) (qualifier)))

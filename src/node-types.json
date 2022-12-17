@@ -125,6 +125,11 @@
     }
   },
   {
+    "type": "qualifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "rule",
     "named": true,
     "fields": {
@@ -227,6 +232,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "qualifier",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -270,16 +285,24 @@
     "named": true
   },
   {
+    "type": "input",
+    "named": false
+  },
+  {
     "type": "number",
     "named": true
   },
   {
-    "type": "string",
-    "named": true
+    "type": "output",
+    "named": false
   },
   {
     "type": "string",
     "named": false
+  },
+  {
+    "type": "string",
+    "named": true
   },
   {
     "type": "u32",
