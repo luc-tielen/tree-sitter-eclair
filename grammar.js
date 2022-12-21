@@ -20,9 +20,9 @@ module.exports = grammar({
         optional(repeat($.qualifier)),
         "."
       ),
-    qualifier: ($) => choice("input", "output"),
+    qualifier: () => choice("input", "output"),
     type_list: ($) => sepBy1($.type, ","),
-    type: ($) => choice("u32", "string"),
+    type: () => choice("u32", "string"),
     fact: ($) => seq($._atom, "."),
     _atom: ($) =>
       seq(
@@ -38,8 +38,9 @@ module.exports = grammar({
         "."
       ),
     clause_list: ($) =>
-      sepBy1(choice($.equality, alias($._atom, $.clause)), ","),
-    equality: ($) => seq($._argument, "=", $._argument),
+      sepBy1(choice($.comparison, alias($._atom, $.clause)), ","),
+    comparison: ($) => seq($._argument, $.compare_op, $._argument),
+    compare_op: () => choice("=", "!=", "<", "<=", ">", ">="),
     argument_list: ($) => sepBy1($._argument, ","),
     _argument: ($) => choice($.identifier, $._literal, $.hole),
     identifier: (_) => /[a-zA-Z][a-zA-Z0-9_]*/,

@@ -22,4 +22,6 @@ rule(x) :-
   (comment)
   (rule (identifier) (argument_list (identifier))
     (comment)
-    (clause_list (clause (identifier) (argument_list (hole))) (equality (identifier) (hole)))))
+    (clause_list
+      (clause (identifier) (argument_list (hole)))
+      (comparison (identifier) (compare_op) (hole)))))

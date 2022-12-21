@@ -1,0 +1,34 @@
+=====
+Equality
+=====
+
+rule(x) :-
+  x = 42,
+  42 = x,
+  x = x,
+  42 = 42.
+
+rule(x) :-
+  x < 42,
+  42 <= x,
+  x > x,
+  42 >= 42,
+  x != 42.
+
+---
+
+(source_file
+  (rule (identifier) (argument_list (identifier))
+    (clause_list
+      (comparison (identifier) (compare_op) (number))
+      (comparison (number) (compare_op) (identifier))
+      (comparison (identifier) (compare_op) (identifier))
+      (comparison (number) (compare_op) (number))))
+
+  (rule (identifier) (argument_list (identifier))
+    (clause_list
+      (comparison (identifier) (compare_op) (number))
+      (comparison (number) (compare_op) (identifier))
+      (comparison (identifier) (compare_op) (identifier))
+      (comparison (number) (compare_op) (number))
+      (comparison (identifier) (compare_op) (number)))))

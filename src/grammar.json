@@ -238,7 +238,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "equality"
+              "name": "comparison"
             },
             {
               "type": "ALIAS",
@@ -265,7 +265,7 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "equality"
+                    "name": "comparison"
                   },
                   {
                     "type": "ALIAS",
@@ -283,7 +283,7 @@
         }
       ]
     },
-    "equality": {
+    "comparison": {
       "type": "SEQ",
       "members": [
         {
@@ -291,12 +291,41 @@
           "name": "_argument"
         },
         {
-          "type": "STRING",
-          "value": "="
+          "type": "SYMBOL",
+          "name": "compare_op"
         },
         {
           "type": "SYMBOL",
           "name": "_argument"
+        }
+      ]
+    },
+    "compare_op": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "STRING",
+          "value": "!="
+        },
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "STRING",
+          "value": "<="
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        },
+        {
+          "type": "STRING",
+          "value": ">="
         }
       ]
     },

@@ -16,7 +16,7 @@
 
 ":-" @punctuation.special
 
-"=" @operator
+(compare_op) @operator
 
 "@def" @keyword
 

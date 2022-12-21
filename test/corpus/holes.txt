@@ -14,4 +14,4 @@ rule(x) :-
   (rule (identifier) (argument_list (identifier))
     (clause_list
       (clause (identifier) (argument_list (hole)))
-      (equality (identifier) (hole)))))
+      (comparison (identifier) (compare_op) (hole)))))

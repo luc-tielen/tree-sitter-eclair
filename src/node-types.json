@@ -65,20 +65,29 @@
           "named": true
         },
         {
-          "type": "equality",
+          "type": "comparison",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "equality",
+    "type": "compare_op",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "comparison",
     "named": true,
     "fields": {},
     "children": {
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "compare_op",
+          "named": true
+        },
         {
           "type": "hole",
           "named": true
@@ -245,6 +254,10 @@
     }
   },
   {
+    "type": "!=",
+    "named": false
+  },
+  {
     "type": "(",
     "named": false
   },
@@ -265,7 +278,23 @@
     "named": false
   },
   {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
     "named": false
   },
   {
