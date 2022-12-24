@@ -1,0 +1,32 @@
+==========
+Arithmetic
+==========
+
+rule(x) :-
+  x = 1 + 2 * (3 / 4),
+  (x - 1) = -x + 2.
+
+---
+
+(source_file
+  (rule (identifier) (argument_list (identifier))
+    (clause_list
+      (comparison
+        (identifier)
+        (compare_op)
+        (binary_expr
+          (number)
+          (binary_expr
+            (number)
+            (binary_expr
+              (number)
+              (number)))))
+      (comparison
+        (binary_expr
+          (identifier)
+          (number))
+        (compare_op)
+        (unary_expr
+          (binary_expr
+            (identifier)
+            (number)))))))

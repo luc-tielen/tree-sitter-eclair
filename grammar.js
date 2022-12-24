@@ -1,3 +1,11 @@
+// Precedences:
+
+const PREC = {
+  UNARY: 0,
+  PLUS_MINUS: 1,
+  MUL_DIV: 2,
+};
+
 // Some extra combinators:
 
 const sepBy1 = (p1, sep) => seq(p1, repeat(seq(sep, p1)));
@@ -39,10 +47,38 @@ module.exports = grammar({
       ),
     clause_list: ($) =>
       sepBy1(choice($.comparison, alias($._atom, $.clause)), ","),
-    comparison: ($) => seq($._argument, $.compare_op, $._argument),
+    comparison: ($) => seq($._expr, $.compare_op, $._expr),
     compare_op: () => choice("=", "!=", "<", "<=", ">", ">="),
-    argument_list: ($) => sepBy1($._argument, ","),
-    _argument: ($) => choice($.identifier, $._literal, $.hole),
+    argument_list: ($) => sepBy1($._expr, ","),
+    // TODO parens, +, -, *, /
+    _expr: ($) =>
+      choice(seq("(", $._expr, ")"), $.unary_expr, $.binary_expr, $._term),
+    unary_expr: ($) =>
+      prec.left(
+        PREC.UNARY,
+        seq(field("operator", "-"), field("expr", $._expr))
+      ),
+    binary_expr: ($) => {
+      const precedenceTable = [
+        [PREC.PLUS_MINUS, "+"],
+        [PREC.PLUS_MINUS, "-"],
+        [PREC.MUL_DIV, "*"],
+        [PREC.MUL_DIV, "/"],
+      ];
+      return choice(
+        ...precedenceTable.map(([precedence, op]) =>
+          prec.left(
+            precedence,
+            seq(
+              field("left", $._expr),
+              field("operator", op),
+              field("right", $._expr)
+            )
+          )
+        )
+      );
+    },
+    _term: ($) => choice($.identifier, $._literal, $.hole),
     identifier: (_) => /[a-zA-Z][a-zA-Z0-9_]*/,
     _literal: ($) => choice($.number, $.string),
     number: (_) => /\d+/,
