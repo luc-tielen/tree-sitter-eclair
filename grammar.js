@@ -19,13 +19,21 @@ module.exports = grammar({
   name: "eclair",
   rules: {
     source_file: ($) => repeat($._statement),
-    _statement: ($) => choice($.typedef, $.fact, $.rule),
+    _statement: ($) => choice($.typedef, $.extern, $.fact, $.rule),
     typedef: ($) =>
       seq(
         "@def",
         field("name", $.identifier),
         betweenParens(field("types", $.type_list)),
         optional(repeat($.qualifier)),
+        "."
+      ),
+    extern: ($) =>
+      seq(
+        "@extern",
+        field("name", $.identifier),
+        betweenParens(field("types", $.type_list)),
+        optional($.type),
         "."
       ),
     qualifier: () => choice("input", "output"),
@@ -50,7 +58,6 @@ module.exports = grammar({
     comparison: ($) => seq($._expr, $.compare_op, $._expr),
     compare_op: () => choice("=", "!=", "<", "<=", ">", ">="),
     argument_list: ($) => sepBy1($._expr, ","),
-    // TODO parens, +, -, *, /
     _expr: ($) =>
       choice(seq("(", $._expr, ")"), $.unary_expr, $.binary_expr, $._term),
     unary_expr: ($) =>
@@ -78,7 +85,7 @@ module.exports = grammar({
         )
       );
     },
-    _term: ($) => choice($.identifier, $._literal, $.hole),
+    _term: ($) => choice($.identifier, $._literal, $._atom, $.hole),
     identifier: (_) => /[a-zA-Z][a-zA-Z0-9_]*/,
     _literal: ($) => choice($.number, $.string),
     number: (_) => /\d+/,

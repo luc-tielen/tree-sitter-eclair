@@ -3,10 +3,9 @@
 (string) @string
 
 (fact name: (identifier) @function)
-
 (rule name: (identifier) @function)
-
 (typedef name: (identifier) @function)
+(extern name: (identifier) @function)
 
 (identifier) @variable
 
@@ -25,7 +24,10 @@
 ] @operator
 
 
-"@def" @keyword
+[
+  "@def"
+  "@extern"
+] @keyword
 
 (hole) @keyword
 

@@ -17,6 +17,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "extern"
+        },
+        {
+          "type": "SYMBOL",
           "name": "fact"
         },
         {
@@ -70,6 +74,60 @@
                 "type": "SYMBOL",
                 "name": "qualifier"
               }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        }
+      ]
+    },
+    "extern": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@extern"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "FIELD",
+              "name": "types",
+              "content": {
+                "type": "SYMBOL",
+                "name": "type_list"
+              }
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "type"
             },
             {
               "type": "BLANK"
@@ -560,6 +618,10 @@
         {
           "type": "SYMBOL",
           "name": "_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_atom"
         },
         {
           "type": "SYMBOL",

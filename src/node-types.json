@@ -2,10 +2,31 @@
   {
     "type": "argument_list",
     "named": true,
-    "fields": {},
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "argument_list",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "binary_expr",
@@ -38,6 +59,16 @@
     "type": "binary_expr",
     "named": true,
     "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "argument_list",
+            "named": true
+          }
+        ]
+      },
       "left": {
         "multiple": true,
         "required": true,
@@ -49,6 +80,10 @@
           {
             "type": ")",
             "named": false
+          },
+          {
+            "type": "argument_list",
+            "named": true
           },
           {
             "type": "binary_expr",
@@ -72,6 +107,16 @@
           },
           {
             "type": "unary_expr",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -109,6 +154,10 @@
           {
             "type": ")",
             "named": false
+          },
+          {
+            "type": "argument_list",
+            "named": true
           },
           {
             "type": "binary_expr",
@@ -191,7 +240,28 @@
   {
     "type": "comparison",
     "named": true,
-    "fields": {},
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "argument_list",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -222,6 +292,42 @@
         },
         {
           "type": "unary_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "extern",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "types": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_list",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "type",
           "named": true
         }
       ]
@@ -303,6 +409,10 @@
       "required": false,
       "types": [
         {
+          "type": "extern",
+          "named": true
+        },
+        {
           "type": "fact",
           "named": true
         },
@@ -377,6 +487,16 @@
     "type": "unary_expr",
     "named": true,
     "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "argument_list",
+            "named": true
+          }
+        ]
+      },
       "expr": {
         "multiple": true,
         "required": true,
@@ -388,6 +508,10 @@
           {
             "type": ")",
             "named": false
+          },
+          {
+            "type": "argument_list",
+            "named": true
           },
           {
             "type": "binary_expr",
@@ -411,6 +535,16 @@
           },
           {
             "type": "unary_expr",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -489,6 +623,10 @@
   },
   {
     "type": "@def",
+    "named": false
+  },
+  {
+    "type": "@extern",
     "named": false
   },
   {

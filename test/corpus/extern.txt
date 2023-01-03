@@ -1,0 +1,23 @@
+==================
+External functions
+==================
+
+@extern func(u32, u32) u32.
+@extern constraint(string, u32).
+
+rule(func(x, y), y) :-
+  x = func(123, 456),
+  y = 789,
+  constraint("abc", y).
+
+---
+
+(source_file
+  (extern (identifier) (type_list (type) (type)) (type))
+  (extern (identifier) (type_list (type) (type)))
+  (rule (identifier)
+    (argument_list (identifier) (argument_list (identifier) (identifier)) (identifier))
+    (clause_list
+      (comparison (identifier) (compare_op) (identifier) (argument_list (number) (number)))
+      (comparison (identifier) (compare_op) (number))
+      (clause (identifier) (argument_list (string) (identifier))))))
