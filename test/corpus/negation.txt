@@ -1,0 +1,26 @@
+========
+Negation
+========
+
+path(x, y) :-
+  !edge(x, y).
+
+path(x, z) :-
+  !(
+    edge(x, y),
+    path(y, z)
+  ).
+
+---
+
+(source_file
+  (rule (identifier) (argument_list (identifier) (identifier))
+    (clause_list
+      (negation
+        (clause (identifier) (argument_list (identifier) (identifier))))))
+  (rule (identifier) (argument_list (identifier) (identifier))
+    (clause_list
+      (negation
+        (clause_list
+          (clause (identifier) (argument_list (identifier) (identifier)))
+          (clause (identifier) (argument_list (identifier) (identifier))))))))

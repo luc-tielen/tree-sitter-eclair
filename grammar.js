@@ -53,8 +53,10 @@ module.exports = grammar({
         field("clauses", $.clause_list),
         "."
       ),
-    clause_list: ($) =>
-      sepBy1(choice($.comparison, alias($._atom, $.clause)), ","),
+    clause_list: ($) => sepBy1($._clause, ","),
+    _clause: ($) => choice($.comparison, alias($._atom, $.clause), $.negation),
+    negation: ($) =>
+      seq("!", choice(alias($._atom, $.clause), betweenParens($.clause_list))),
     comparison: ($) => seq($._expr, $.compare_op, $._expr),
     compare_op: () => choice("=", "!=", "<", "<=", ">", ">="),
     argument_list: ($) => sepBy1($._expr, ","),

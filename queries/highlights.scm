@@ -27,11 +27,10 @@
 [
   "@def"
   "@extern"
+  "!"
+  (hole)
+  (qualifier)
 ] @keyword
-
-(hole) @keyword
-
-(qualifier) @keyword
 
 (type) @type
 

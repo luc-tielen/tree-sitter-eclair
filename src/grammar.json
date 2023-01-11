@@ -292,22 +292,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "comparison"
-            },
-            {
-              "type": "ALIAS",
-              "content": {
-                "type": "SYMBOL",
-                "name": "_atom"
-              },
-              "named": true,
-              "value": "clause"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "_clause"
         },
         {
           "type": "REPEAT",
@@ -319,25 +305,73 @@
                 "value": ","
               },
               {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "comparison"
-                  },
-                  {
-                    "type": "ALIAS",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "_atom"
-                    },
-                    "named": true,
-                    "value": "clause"
-                  }
-                ]
+                "type": "SYMBOL",
+                "name": "_clause"
               }
             ]
           }
+        }
+      ]
+    },
+    "_clause": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "comparison"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_atom"
+          },
+          "named": true,
+          "value": "clause"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "negation"
+        }
+      ]
+    },
+    "negation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "!"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_atom"
+              },
+              "named": true,
+              "value": "clause"
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "("
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "clause_list"
+                },
+                {
+                  "type": "STRING",
+                  "value": ")"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
