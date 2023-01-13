@@ -374,10 +374,6 @@
         {
           "type": "clause",
           "named": true
-        },
-        {
-          "type": "clause_list",
-          "named": true
         }
       ]
     }
