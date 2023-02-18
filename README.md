@@ -18,6 +18,7 @@ $ git clone git@github.com:luc-tielen/tree-sitter-eclair.git && cd tree-sitter-e
 $ npm install
 $ ./node_modules/tree-sitter-cli/tree-sitter generate
 $ ./node_modules/tree-sitter-cli/tree-sitter test
+$ mkdir -p ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/queries/eclair
 $ cp queries/highlights.scm ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/queries/eclair/
 ```
 
