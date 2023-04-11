@@ -2,12 +2,12 @@
 
 (string) @string
 
+(identifier) @variable
+
 (fact name: (identifier) @function)
 (rule name: (identifier) @function)
 (typedef name: (identifier) @function)
 (extern name: (identifier) @function)
-
-(identifier) @variable
 
 ["." ","] @punctuation.delimiter
 
