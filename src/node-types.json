@@ -51,6 +51,10 @@
         {
           "type": "unary_expr",
           "named": true
+        },
+        {
+          "type": "wildcard",
+          "named": true
         }
       ]
     }
@@ -107,6 +111,10 @@
           },
           {
             "type": "unary_expr",
+            "named": true
+          },
+          {
+            "type": "wildcard",
             "named": true
           }
         ]
@@ -181,6 +189,10 @@
           },
           {
             "type": "unary_expr",
+            "named": true
+          },
+          {
+            "type": "wildcard",
             "named": true
           }
         ]
@@ -296,6 +308,10 @@
         },
         {
           "type": "unary_expr",
+          "named": true
+        },
+        {
+          "type": "wildcard",
           "named": true
         }
       ]
@@ -555,6 +571,10 @@
           {
             "type": "unary_expr",
             "named": true
+          },
+          {
+            "type": "wildcard",
+            "named": true
           }
         ]
       },
@@ -687,5 +707,9 @@
   {
     "type": "u32",
     "named": false
+  },
+  {
+    "type": "wildcard",
+    "named": true
   }
 ]

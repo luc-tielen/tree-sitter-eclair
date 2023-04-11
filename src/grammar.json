@@ -637,6 +637,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "wildcard"
+        },
+        {
+          "type": "SYMBOL",
           "name": "hole"
         }
       ]
@@ -665,6 +669,10 @@
     "string": {
       "type": "PATTERN",
       "value": "\\\".*\\\""
+    },
+    "wildcard": {
+      "type": "STRING",
+      "value": "_"
     },
     "hole": {
       "type": "STRING",

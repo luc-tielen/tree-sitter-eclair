@@ -86,11 +86,12 @@ module.exports = grammar({
         )
       );
     },
-    _term: ($) => choice($.identifier, $._literal, $._atom, $.hole),
+    _term: ($) => choice($.identifier, $._literal, $._atom, $.wildcard, $.hole),
     identifier: (_) => /[a-zA-Z][a-zA-Z0-9_]*/,
     _literal: ($) => choice($.number, $.string),
     number: (_) => /\d+/,
     string: (_) => /\".*\"/,
+    wildcard: (_) => "_",
     hole: (_) => "?",
 
     // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890

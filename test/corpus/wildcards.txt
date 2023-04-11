@@ -1,0 +1,17 @@
+=====
+Holes
+=====
+
+fact(_, 42, _).
+rule(x) :-
+  clause(_),
+  clause2(_, _).
+
+---
+
+(source_file
+  (fact (identifier) (argument_list (wildcard) (number) (wildcard)))
+  (rule (identifier) (argument_list (identifier))
+    (clause_list
+      (clause (identifier) (argument_list (wildcard)))
+      (clause (identifier) (argument_list (wildcard) (wildcard))))))
