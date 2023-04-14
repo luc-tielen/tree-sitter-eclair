@@ -110,10 +110,10 @@
             },
             {
               "type": "FIELD",
-              "name": "types",
+              "name": "args",
               "content": {
                 "type": "SYMBOL",
-                "name": "type_list"
+                "name": "arg_list"
               }
             },
             {
@@ -172,31 +172,6 @@
               {
                 "type": "SYMBOL",
                 "name": "arg"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "type_list": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "type"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "type"
               }
             ]
           }

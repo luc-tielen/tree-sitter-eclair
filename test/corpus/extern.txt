@@ -10,14 +10,25 @@ rule(func(x, y), y) :-
   y = 789,
   constraint("abc", y).
 
+@extern constraint_with_named_fields(field1: string, field2: u32).
+@extern func_with_named_fields(string, named_field: u32).
+
 ---
 
 (source_file
-  (extern (identifier) (type_list (type) (type)) (type))
-  (extern (identifier) (type_list (type) (type)))
+  (extern (identifier) (arg_list (arg (type)) (arg (type))) (type))
+  (extern (identifier) (arg_list (arg (type)) (arg (type))))
   (rule (identifier)
     (argument_list (identifier) (argument_list (identifier) (identifier)) (identifier))
     (clause_list
       (comparison (identifier) (compare_op) (identifier) (argument_list (number) (number)))
       (comparison (identifier) (compare_op) (number))
-      (clause (identifier) (argument_list (string) (identifier))))))
+      (clause (identifier) (argument_list (string) (identifier)))))
+  (extern (identifier)
+    (arg_list
+      (arg (named_type (identifier) (type)))
+      (arg (named_type (identifier) (type)))))
+  (extern (identifier)
+    (arg_list
+      (arg (type))
+      (arg (named_type (identifier) (type))))))

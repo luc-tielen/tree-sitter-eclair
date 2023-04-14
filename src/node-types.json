@@ -355,22 +355,22 @@
     "type": "extern",
     "named": true,
     "fields": {
+      "args": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "arg_list",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
         "types": [
           {
             "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "types": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type_list",
             "named": true
           }
         ]
@@ -519,21 +519,6 @@
     "type": "type",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "type_list",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "type",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "typedef",
