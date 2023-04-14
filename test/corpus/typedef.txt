@@ -10,19 +10,25 @@ Typedefs
 @def with_output(u32) output.
 @def with_many_qualifiers(u32) input output output input output.
 
+@def with_all_field_names(field1: u32, another_field: string).
+@def with_one_field_name(string, another_field: u32).
+
 ---
 
 (source_file
+  (typedef (identifier) (arg_list (arg (type))))
+  (typedef (identifier) (arg_list (arg (type)) (arg (type))))
+  (typedef (identifier) (arg_list (arg (type)) (arg (type))))
+
+  (typedef (identifier) (arg_list (arg (type))) (qualifier))
+  (typedef (identifier) (arg_list (arg (type))) (qualifier))
+  (typedef (identifier) (arg_list (arg (type))) (qualifier) (qualifier) (qualifier) (qualifier) (qualifier))
+
   (typedef (identifier)
-    (type_list (type)))
+    (arg_list
+      (arg (named_type (identifier) (type)))
+      (arg (named_type (identifier) (type)))))
   (typedef (identifier)
-    (type_list (type) (type)))
-  (typedef (identifier)
-    (type_list (type) (type)))
-  (typedef (identifier)
-    (type_list (type)) (qualifier))
-  (typedef (identifier)
-    (type_list (type)) (qualifier))
-  (typedef (identifier)
-    (type_list (type))
-      (qualifier) (qualifier) (qualifier) (qualifier) (qualifier)))
+    (arg_list
+      (arg (type))
+      (arg (named_type (identifier) (type))))))

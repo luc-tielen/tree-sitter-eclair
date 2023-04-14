@@ -9,7 +9,7 @@
 (typedef name: (identifier) @function)
 (extern name: (identifier) @function)
 
-["." ","] @punctuation.delimiter
+["." "," ":"] @punctuation.delimiter
 
 ["(" ")"] @punctuation.bracket
 
